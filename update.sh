@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-plasmapkg2 --update . # update the plasmoid
+plasmapkg2 --upgrade . # update the plasmoid
