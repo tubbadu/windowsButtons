@@ -3,5 +3,4 @@
 ## TODOs:
 
 * [ ] fix combobox theme
-
 - [ ] boh

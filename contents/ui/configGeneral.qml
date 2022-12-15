@@ -36,8 +36,4 @@ Kirigami.FormLayout {
 		id: customIcon
 		Kirigami.FormData.label: i18n("Custom icon name or full path (leave empty for default)")
 	}
-
-	Label{
-		text: buttontype.model[buttontype.currentIndex].value
-	}
 }
