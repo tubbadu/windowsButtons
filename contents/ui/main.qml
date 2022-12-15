@@ -28,8 +28,10 @@ Item {
 			id: windowbutton
 			actionName: buttontype
 			iconName: customIcon
-			width: parent.width
-			height: width
+			//width: parent.width
+			//height: width
+			width: height
+			height: parent.height
 		}
 	}
 
