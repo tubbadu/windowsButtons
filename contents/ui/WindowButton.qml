@@ -11,19 +11,23 @@ Item{
 	id: windowbutton
 	property string actionName: "Close"
 	property string iconName: "window-close"
+	property alias icon: mybutton.icon
 	
 	TaskManager.TasksModel {
 		id: tasksModel
 	}
 
-	ToolButton{
+	MyButton{
+		id: mybutton
 		anchors.fill: parent
 		icon.name: iconName.length > 1 ? iconName : getIcon()
+		//isUrl: i.includes(".") || i.includes("/")
+		
 		visible: tasksModel.activeTask.valid
 
 		function getIcon(){
 			let actions = {
-				"Close": "/home/tubbadu/.local/share/plasma/plasmoids/com.github.windowsButtons/contents/img/window-close-true.svg",
+				"Close": "window-close",//"../img/window-close-true.svg",
 				"Minimize": "window-minimize",
 				"Maximize": "window-maximize",
 				"KeepAbove": "window-keep-above",
@@ -34,7 +38,7 @@ Item{
 			return actions[actionName]
 		}
 
-		onClicked:{
+		onClicked: function() {
 			let actions = {
 				"Close": tasksModel.requestClose,
 				"Minimize": tasksModel.requestToggleMinimized,
@@ -47,11 +51,11 @@ Item{
 		}
 	}
 
-	ToolButton{
+	MyButton{
 		icon.name: "system-shutdown"
 		anchors.fill: parent
 		visible: !tasksModel.activeTask.valid
-		onClicked: {
+		onClicked: function() {
 			plasmoid.expanded = !plasmoid.expanded
 		}
 	}

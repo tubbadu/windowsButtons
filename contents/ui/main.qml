@@ -23,46 +23,37 @@ Item {
         }
     }
 
-	Plasmoid.compactRepresentation: WindowButton{
-		actionName: buttontype
-		iconName: customIcon
-		anchors.fill: parent
+	Plasmoid.compactRepresentation: Item{
+		WindowButton{
+			id: windowbutton
+			actionName: buttontype
+			iconName: customIcon
+			width: parent.width
+			height: width
+		}
 	}
 
 	Plasmoid.fullRepresentation: ColumnLayout{
-		ToolButton{
+		MyButton{
 			icon.name: "system-suspend"
 			text: i18n("Suspend")
-			onClicked: {
-				executable.exec("systemctl suspend")
-			}
+			Layout.fillWidth: true
+			Layout.preferredHeight: 30
+			onClicked: function() {executable.exec("systemctl suspend")}
 		}
-		ToolButton{
+		MyButton{
 			icon.name: "system-reboot"
 			text: i18n("Reboot")
-			onClicked: {
-				executable.exec("systemctl reboot")
-			}
+			Layout.fillWidth: true
+			Layout.preferredHeight: 30
+			onClicked: function() {executable.exec("systemctl reboot")}
 		}
-		ToolButton{
+		MyButton{
 			icon.name: "system-shutdown"
 			text: i18n("Shutdown")
-			onClicked: {
-				executable.exec("systemctl poweroff")
-			}
-		}
-		/*Image{
-			height: 50
-			width: 50
-			source: "prova.png"
-		}*/
-		Image{
-			id: img
-			height: 50
-			width: 50
-			fillMode: Image.PreserveAspectFit
-			source: icon.url()
-			
+			Layout.fillWidth: true
+			Layout.preferredHeight: 30
+			onClicked: function() {executable.exec("systemctl poweroff")}
 		}
 	}
 }
