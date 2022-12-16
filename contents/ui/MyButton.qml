@@ -17,7 +17,7 @@ Item{
 	}
 
 	height: 30
-	width: height + 2* row.spacing + label.width 
+	width: height + (2*row.spacing + label.width) * (text.length > 0)
 	Row{
 		id: row
 		anchors.fill: parent
