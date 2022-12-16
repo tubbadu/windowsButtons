@@ -32,7 +32,7 @@ Item {
 		}
 		
 		let icons = {
-			"Close": "../img/window-close-true.svg",
+			"Close": "../img/window-close.svg",
 			"Minimize": "window-minimize",
 			"Maximize": "window-maximize",
 			"KeepAbove": "window-keep-above",
